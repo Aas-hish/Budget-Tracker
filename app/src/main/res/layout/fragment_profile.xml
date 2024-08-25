@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".profileFragment"
+    android:background="#fff"
+    android:padding="16dp">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:background="#fff"
+       android:orientation="vertical">
+
+       <!-- Profile Image -->
+
+       <androidx.cardview.widget.CardView
+           android:layout_width="150dp"
+           android:layout_height="150dp"
+           android:layout_gravity="center"
+           android:layout_marginTop="70dp"
+           android:layout_marginBottom="10dp"
+           android:padding="10dp"
+           app:cardCornerRadius="80dp"
+           app:cardElevation="15dp"
+           app:cardMaxElevation="10dp"
+           app:cardBackgroundColor="@android:color/white">
+
+           <ImageView
+               android:id="@+id/profile_image"
+               android:layout_width="150dp"
+               android:layout_height="150dp"
+               android:layout_gravity="center"
+               android:src="@drawable/user_02"
+               android:scaleType="centerCrop"
+               />
+
+       </androidx.cardview.widget.CardView>
+
+       <TextView
+           android:id="@+id/choose_image_button"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Edit Profile"
+           android:fontFamily="@font/poppin_medium"
+           android:textColor="@color/black"
+           android:textSize="14sp"
+           android:layout_gravity="center_horizontal"
+           android:layout_marginTop="6dp"
+           android:layout_marginBottom="20dp"/>
+
+
+       <!-- Name TextView -->
+       <TextView
+           android:id="@+id/profile_name"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:text="John Doe"
+           android:fontFamily="@font/poppin_medium"
+           android:textStyle="bold"
+           android:textSize="28sp"
+           android:textColor="@android:color/black"
+           android:layout_marginBottom="8dp"
+       />
+
+       <!-- Email TextView -->
+       <TextView
+           android:id="@+id/profile_email"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:text="john.doe@example.com"
+           android:textSize="18sp"
+           android:fontFamily="@font/poppin_medium"
+           android:textColor="@color/black"
+           android:layout_marginBottom="24dp"/>
+
+       <!-- Logout Button -->
+       <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/logout_button"
+           android:layout_width="match_parent"
+           android:layout_marginStart="30dp"
+           android:layout_marginEnd="30dp"
+           android:layout_height="wrap_content"
+           android:text="Log Out"
+           android:layout_marginTop="200dp"
+           android:fontFamily="@font/poppin_medium"
+           android:background="@drawable/add_expense"
+           android:textColor="@android:color/white"
+           />
+   </LinearLayout>
+
+</FrameLayout>
