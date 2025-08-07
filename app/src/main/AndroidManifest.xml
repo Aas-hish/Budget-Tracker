@@ -25,6 +25,9 @@
             android:name=".AddExpenseBottomSheet"
             android:exported="false" />
         <activity
+            android:name=".ChatBox"
+            android:exported="false" />
+        <activity
             android:name=".AddIncomeBottomSheet"
             android:exported="false" />
         <activity

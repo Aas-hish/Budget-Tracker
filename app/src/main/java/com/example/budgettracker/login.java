@@ -3,6 +3,7 @@ package com.example.budgettracker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -78,6 +79,8 @@ public class login extends AppCompatActivity {
             FirebaseAuthException authException = (FirebaseAuthException) exception;
             String errorCode = authException.getErrorCode();
 
+            Log.e("LoginError", "Error Code: " + errorCode + ", Message: " + authException.getMessage());
+
             switch (errorCode) {
                 case "ERROR_INVALID_EMAIL":
                     emailEditText.setError("Invalid email address");
@@ -88,8 +91,11 @@ public class login extends AppCompatActivity {
                 case "ERROR_USER_NOT_FOUND":
                     Toast.makeText(login.this, "No account found with this email", Toast.LENGTH_SHORT).show();
                     break;
+                case "ERROR_USER_DISABLED":
+                    Toast.makeText(login.this, "This account has been disabled", Toast.LENGTH_SHORT).show();
+                    break;
                 default:
-                    Toast.makeText(login.this, authException.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login.this, "Login failed: " + authException.getMessage(), Toast.LENGTH_SHORT).show();
                     break;
             }
         } else {

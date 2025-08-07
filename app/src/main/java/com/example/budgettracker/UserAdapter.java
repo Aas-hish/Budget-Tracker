@@ -12,9 +12,9 @@ import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
 
-    private List<String> userNames;
+    private final List<UserBalance> userNames;
 
-    public UserAdapter(List<String> userNames) {
+    public UserAdapter(List<UserBalance> userNames) {
         this.userNames = userNames;
     }
 
@@ -27,7 +27,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        String userName = userNames.get(position);
+        String userName = String.valueOf(userNames.get(position));
         holder.userNameTextView.setText((position + 1) + ". " + userName);
     }
 

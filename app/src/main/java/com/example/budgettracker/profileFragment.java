@@ -91,25 +91,23 @@ public class profileFragment extends Fragment {
         if (firebaseAuth != null) {
             // Sign out the user
             firebaseAuth.signOut();
-            Log.d("sign", "User signed out");
+            Log.d(TAG, "User signed out");
         }
 
+        // Ensure that the app goes back to the login activity and clears the stack
         if (isAdded() && getActivity() != null) {
-            // Get the activity context
-            Activity activity = getActivity();
-
-            // Navigate to the login activity
-            Intent intent = new Intent(activity, login.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            Intent intent = new Intent(requireActivity(), login.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
 
-            // Finish the current activity to prevent returning back to it
-            activity.finish();
-            Log.d("navi", "Navigated to login activity and finished current activity");
+            // Finish all activities and clear task
+            requireActivity().finishAffinity();
+
+            Log.d(TAG, "Navigated to login activity, cleared back stack, and closed previous activities");
         } else {
-            // Handle the case where the activity is null (which shouldn't normally happen)
+            // Handle the case where the activity is null
             Toast.makeText(getContext(), "Error: Unable to log out", Toast.LENGTH_SHORT).show();
-            Log.e("null", "Activity is null during logout");
+            Log.e(TAG, "Activity is null during logout");
         }
     }
 
